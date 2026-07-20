@@ -1,23 +1,36 @@
 :root {
-  /* Fondo claro, cálido, tipo papel tiza */
-  --bg-primary: #FAFAFA; 
+  /* Fondo cálido tipo hueso/papel, no blanco puro (el blanco #FFF es lo que más
+     "template default" se lee — un crema sutil da más calidez sin perder legibilidad) */
+  --bg-primary: #FBF8F3;
   --bg-secondary: #FFFFFF;
 
-  /* Textos oscuros para que se lean perfecto */
-  --text-primary: #111111;
-  --text-muted: #555555;
+  --text-primary: #1A1A17;
+  --text-muted: #5C574E;
 
-  --border-color: rgba(0,0,0,0.08);
+  --border-color: rgba(26,26,23,0.09);
 
-  /* Los colores de la ONG se mantienen */
-  --color-ong-green: #2ecc71;
-  --color-ong-red: #e74c3c;
-  --color-ong-blue: #3498db;
+  /* Paleta desaturada: mismo verde/rojo institucional pero bajado de saturación,
+     tipo "pasto/oliva" y "terracota" en vez de semáforo puro. Se ve más editorial,
+     menos "landing generada rápido" */
+  --color-ong-green: #4C7A4F;
+  --color-ong-green-soft: #EAF1E8;
+  --color-ong-red: #B4502E;
+  --color-ong-red-soft: #F5E7E1;
+  --color-ong-blue: #3E6E8E;
+  --color-ong-blue-soft: #E7EFF3;
 
-  /* Quitamos los blobs oscuros y los hacemos sutiles para el fondo claro */
-  --blob-green: rgba(46,204,113,0.15);
-  --blob-red: rgba(231,76,60,0.15);
-  --ticker-bg: rgba(0,0,0,0.03);
+  /* Acento nuevo: mostaza/dorado, para detalles puntuales (badges, subrayados,
+     estrellas) sin sumar otro color "fuerte" */
+  --color-ong-gold: #C79A3F;
+
+  --blob-green: rgba(76,122,79,0.12);
+  --blob-red: rgba(180,80,46,0.10);
+  --ticker-bg: rgba(26,26,23,0.03);
+
+  /* Tipografías centralizadas para no repetir el string en cada componente */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-accent: 'Fraunces', serif; /* para citas/testimonios, subtítulos con carácter */
 }
 
 /* ANIMACIÓN PARA LA BARRA CORREDIZA (TICKER) */
@@ -28,13 +41,14 @@
 
 .animate-marquee {
   display: flex;
-  width: max-content; /* Obliga a que no se corte el texto */
-  animation: marquee 20s linear infinite;
+  width: max-content;
+  animation: marquee 28s linear infinite;
 }
 
 .animate-marquee:hover {
-  animation-play-state: paused; /* Se frena si el usuario le pasa el mouse */
+  animation-play-state: paused;
 }
 
-/* IMPORTANTE: Si en tus componentes tenías puesto "color: '#fff'" a mano en algún título, 
-   vas a tener que cambiarlo por "color: 'var(--text-primary)'" para que no quede blanco sobre blanco */
+body {
+  font-family: var(--font-body);
+}

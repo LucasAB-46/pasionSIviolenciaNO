@@ -13,17 +13,7 @@ function App() {
     <Router>
       <main style={{ position: 'relative', minHeight: '100vh', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', display: 'flex', flexDirection: 'column' }}>
         
-        {/* MARCA DE AGUA GLOBAL (Fija en el fondo) */}
-        <div style={{ 
-          position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', 
-          fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(10rem, 20vw, 25rem)', 
-          whiteSpace: 'nowrap', zIndex: 0, pointerEvents: 'none', userSelect: 'none',
-          display: 'flex', gap: '4vw', 
-          opacity: 0.05 /* Súper transparente para no tapar los textos reales */
-        }}>
-          <span style={{ color: 'var(--color-ong-green)' }}>PASIÓN SÍ</span>
-          <span style={{ color: 'var(--color-ong-red)', fontStyle: 'italic' }}>VIOLENCIA NO</span>
-        </div>
+        
 
         <Navbar />
         
