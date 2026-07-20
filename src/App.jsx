@@ -11,14 +11,11 @@ import Contacto from './pages/Contacto';
 function App() {
   return (
     <Router>
-      <main style={{ position: 'relative', minHeight: '100vh', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', display: 'flex', flexDirection: 'column' }}>
-        
-        
+      <main style={{ position: 'relative', minHeight: '100vh', backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)', display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
 
         <Navbar />
-        
-        {/* Contenedor de las páginas */}
-        <div style={{ flex: 1, position: 'relative', zIndex: 1 }}> 
+
+        <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/nosotros" element={<Nosotros />} />
@@ -31,21 +28,22 @@ function App() {
           <Footer />
         </div>
 
-        {/* BOTONES FLOTANTES (Fijos abajo a la derecha) */}
-        <div style={{ position: 'fixed', bottom: '32px', right: '32px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <Link to="/contacto" style={{ 
-            background: 'var(--color-ong-green)', color: '#fff', padding: '16px 24px', 
-            borderRadius: '50px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', 
-            fontFamily: "'DM Sans', sans-serif", textAlign: 'center',
-            boxShadow: '0 10px 20px rgba(46,204,113,0.4)', transition: 'transform 0.2s'
+        {/* BOTONES FLOTANTES: la clase floating-actions los achica/reposiciona en mobile,
+            ver reglas @media agregadas en index.css */}
+        <div className="floating-actions" style={{ position: 'fixed', bottom: '32px', right: '32px', zIndex: 100, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <Link to="/contacto" className="floating-btn" style={{
+            background: 'var(--color-ong-green)', color: '#fff', padding: '16px 24px',
+            borderRadius: '50px', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
+            fontFamily: 'var(--font-body)', textAlign: 'center',
+            boxShadow: '0 10px 20px rgba(76,122,79,0.35)', transition: 'transform 0.2s'
           }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
             SUMARTE
           </Link>
-          <Link to="/contacto" style={{ /* Si tenés página de /donar, cambialo acá */
-            background: 'var(--color-ong-red)', color: '#fff', padding: '16px 24px', 
-            borderRadius: '50px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', 
-            fontFamily: "'DM Sans', sans-serif", textAlign: 'center',
-            boxShadow: '0 10px 20px rgba(231,76,60,0.4)', transition: 'transform 0.2s'
+          <Link to="/contacto" className="floating-btn" style={{
+            background: 'var(--color-ong-red)', color: '#fff', padding: '16px 24px',
+            borderRadius: '50px', fontWeight: 700, fontSize: '15px', textDecoration: 'none',
+            fontFamily: 'var(--font-body)', textAlign: 'center',
+            boxShadow: '0 10px 20px rgba(180,80,46,0.35)', transition: 'transform 0.2s'
           }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
             DONAR
           </Link>
