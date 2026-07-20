@@ -1,0 +1,40 @@
+:root {
+  /* Fondo claro, cálido, tipo papel tiza */
+  --bg-primary: #FAFAFA; 
+  --bg-secondary: #FFFFFF;
+
+  /* Textos oscuros para que se lean perfecto */
+  --text-primary: #111111;
+  --text-muted: #555555;
+
+  --border-color: rgba(0,0,0,0.08);
+
+  /* Los colores de la ONG se mantienen */
+  --color-ong-green: #2ecc71;
+  --color-ong-red: #e74c3c;
+  --color-ong-blue: #3498db;
+
+  /* Quitamos los blobs oscuros y los hacemos sutiles para el fondo claro */
+  --blob-green: rgba(46,204,113,0.15);
+  --blob-red: rgba(231,76,60,0.15);
+  --ticker-bg: rgba(0,0,0,0.03);
+}
+
+/* ANIMACIÓN PARA LA BARRA CORREDIZA (TICKER) */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content; /* Obliga a que no se corte el texto */
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused; /* Se frena si el usuario le pasa el mouse */
+}
+
+/* IMPORTANTE: Si en tus componentes tenías puesto "color: '#fff'" a mano en algún título, 
+   vas a tener que cambiarlo por "color: 'var(--text-primary)'" para que no quede blanco sobre blanco */
