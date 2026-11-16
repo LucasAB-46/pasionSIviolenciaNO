@@ -24,7 +24,7 @@ const Nosotros = () => (
           </p>
 
           <p style={{ color: 'var(--text-muted)', fontSize: 17, fontFamily: 'var(--font-body)', lineHeight: 1.8, marginBottom: 32 }}>
-            <strong style={{ color: 'var(--text-primary)' }}>Pasión Sí, Violencia No</strong> nació con un objetivo claro: demostrar que el deporte puede transformar vidas. Con base en Lugano, acompañamos a chicos y chicas de espacios vulnerables de toda la Ciudad y el Gran Buenos Aires, generando espacios seguros y experiencias que cambian perspectivas.
+            <strong style={{ color: 'var(--text-primary)' }}>"Pasión Sí, Violencia No"</strong> nació con un objetivo claro: demostrar que el deporte puede transformar vidas. Con base en Lugano, acompañamos a chicos y chicas de espacios vulnerables de toda la Ciudad y el Gran Buenos Aires, generando espacios seguros y experiencias que cambian perspectivas.
           </p>
 
           <div style={{ display: 'flex', gap: 12, alignItems: 'center', padding: 16, background: 'var(--color-ong-green-soft)', border: '1px solid rgba(76,122,79,0.2)', borderRadius: 12 }}>
