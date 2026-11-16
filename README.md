@@ -1,16 +1,40 @@
-# React + Vite
+# Pasión Sí, Violencia No — Sitio web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio institucional de la ONG **Pasión Sí, Violencia No** (con base en Lugano, CABA), que acompaña a chicos y chicas de espacios vulnerables de CABA y GBA a través del deporte, la cultura y los valores.
 
-Currently, two official plugins are available:
+Desarrollado pro bono por [InnovaTI by LB](https://innovatibylb.com.ar/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+- React 19 + Vite (rolldown-vite)
+- React Router 7
+- lucide-react (íconos)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Correr en local
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # genera /dist para producción
+npm run preview  # sirve /dist localmente
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Dónde se edita cada cosa
+
+| Qué | Archivo |
+|---|---|
+| WhatsApp, Instagram, alias/CBU para donar | `src/data/contacto.js` |
+| Actividades (título, texto, foto) | `src/data/actividades.js` |
+| Valores de "Nosotros" | `src/data/nosotros.js` |
+| Frases de la barra que se desliza | `src/data/hero.js` |
+| Colores y tipografías | `src/index.css` (variables `:root`) |
+| Fotos | `src/assets/images/` (usar `.webp`, máx. ~1400px) |
+
+## Páginas
+
+`/` Inicio · `/nosotros` · `/actividades` · `/contacto` (con sección `#donar`) · cualquier otra ruta → 404
+
+## Deploy
+
+Es una SPA: el hosting tiene que redirigir todas las rutas a `index.html`.
+Ya está resuelto para **Vercel** (`vercel.json`) y **Netlify** (`public/_redirects`).

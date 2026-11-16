@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { redes, lema } from '../data/contacto';
+import RedesIcon from './RedesIcon';
 
 const Footer = () => {
   return (
@@ -18,9 +20,23 @@ const Footer = () => {
         
         {/* Ubicación Actualizada y texto adaptado al fondo claro */}
         <p style={{ color: 'var(--text-muted)', fontSize: 14, fontFamily: "'DM Sans', sans-serif", textAlign: 'center', margin: 0 }}>
-          ONG • Lugano, Ciudad Autónoma de Buenos Aires<br />
-          Trabajamos 100% ad honorem por los chicos del barrio.
+          ONG con base en Lugano, CABA<br />
+          Trabajamos 100% ad honorem por los chicos y chicas.<br />
+          <em style={{ fontFamily: 'var(--font-accent)', color: 'var(--text-primary)' }}>{lema}</em>
         </p>
+
+        {/* Redes */}
+        <div style={{ display: 'flex', gap: 10 }}>
+          {redes.map(r => (
+            <a key={r.nombre} href={r.url} target="_blank" rel="noopener noreferrer" aria-label={r.nombre}
+              style={{ width: 40, height: 40, borderRadius: '50%', border: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-ong-green)', transition: 'background 0.2s, color 0.2s' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'var(--color-ong-green)'; e.currentTarget.style.color = '#fff'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--color-ong-green)'; }}
+            >
+              <RedesIcon nombre={r.nombre} size={18} />
+            </a>
+          ))}
+        </div>
         
         {/* Tu firma interactiva: Enlace real y color Rojo */}
         <div style={{ color: 'var(--text-muted)', fontSize: 13, fontFamily: "'DM Sans', sans-serif" }}>

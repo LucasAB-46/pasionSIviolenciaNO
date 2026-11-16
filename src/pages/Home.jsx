@@ -6,8 +6,6 @@ import Hero from "../components/Hero";
 import Nosotros from "./Nosotros"; 
 import Actividades from "./Actividades";
 
-// Asumimos que Testimonios sigue en la carpeta components
-import Testimonios from "../components/Testimonios";
 
 const Home = () => {
   return (
@@ -15,7 +13,6 @@ const Home = () => {
       <Hero />
       <Nosotros />
       <Actividades />
-      <Testimonios />
     </>
   );
 };

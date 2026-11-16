@@ -51,6 +51,36 @@
 
 body {
   font-family: var(--font-body);
+  margin: 0;
+}
+
+/* ANIMACIONES DE ENTRADA
+   Hero, Actividades, etc. ya usaban estas clases pero nunca estaban definidas,
+   así que no animaban nada. Ahora sí. */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+
+/* Accesibilidad: si la persona tiene "reducir movimiento" activado en su sistema,
+   apagamos animaciones (ticker incluido) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up, .animate-marquee {
+    animation: none !important;
+  }
+}
+
+/* Foco visible para quien navega con teclado */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--color-ong-gold);
+  outline-offset: 3px;
 }
 
 

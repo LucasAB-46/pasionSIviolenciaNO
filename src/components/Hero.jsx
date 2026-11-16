@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import pasionImg from '../assets/images/pasion.png';
+import pasionImg from '../assets/images/pasion.webp';
 import { tickerData } from '../data/hero';
 
 const Hero = () => {
-  const tickerColors = ['var(--color-ong-green)', 'var(--color-ong-red)', 'var(--color-ong-blue, #3498db)'];
+  const tickerColors = ['var(--color-ong-green)', 'var(--color-ong-red)', 'var(--color-ong-blue)'];
 
   return (
     <section id="inicio" style={{ width: '100%', display: 'flex', flexDirection: 'column', background: 'transparent', position: 'relative', overflow: 'hidden' }}>
@@ -53,7 +53,7 @@ const Hero = () => {
           {/* 4. El contenedor de la imagen ahora garantiza que no desborde con un width: 100% estricto */}
           <div className="animate-fade-up animate-delay-2" style={{ display: 'flex', justifyContent: 'center', position: 'relative', width: '100%' }}>
             {/* Los bordes de la foto también se achican en celular (clamp) para que no se vean raros */}
-            <img src={pasionImg} alt="Niños y valores" style={{ width: '100%', maxWidth: '600px', aspectRatio: '4/3', borderRadius: 'clamp(16px, 5vw, 32px)', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', objectFit: 'cover', position: 'relative', zIndex: 1 }} />
+            <img src={pasionImg} alt="Ilustración de chicos jugando al fútbol y abrazados frente a un mundo rodeado de manos de colores" width="1400" height="933" fetchPriority="high" style={{ width: '100%', maxWidth: '600px', height: 'auto', display: 'block', borderRadius: 'clamp(16px, 5vw, 32px)', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', position: 'relative', zIndex: 1 }} />
           </div>
 
         </div>

@@ -1,57 +1,58 @@
 // src/data/actividades.js
-import imgCampeones from '../assets/images/campeones.png';
-import imgHinchas from '../assets/images/hinchas.png';
-import imgButacas from '../assets/images/butacas.png';
-import imgClub from '../assets/images/club.png';
-import imgConBandera from '../assets/images/conBandera.png';
-import imgChicos from '../assets/images/chicos.png';
+// icon: nombre de un ícono de lucide-react (se resuelve en Actividades.jsx)
+import imgCampeones from '../assets/images/campeones.webp';
+import imgHinchas from '../assets/images/hinchas.webp';
+import imgButacas from '../assets/images/butacas.webp';
+import imgClub from '../assets/images/club.webp';
+import imgConBandera from '../assets/images/conBandera.webp';
+import imgChicos from '../assets/images/chicos.webp';
 
 export const actividades = [
-  { 
-    titulo: 'La Selección Argentina', 
-    desc: 'Cumplimos el sueño de los chicos de conocer a la Selección. Lloraron de emoción.', 
-    emoji: '🇦🇷', 
-    tag: 'Sueño cumplido', 
+  {
+    titulo: 'Festejo de campeones',
+    desc: 'Acompañamos a los chicos y chicas de La 17 a celebrar su campeonato. Cada logro de los pibes merece festejarse en comunidad.',
+    icon: 'Trophy',
+    tag: 'Logros',
     color: 'var(--color-ong-green)',
     imagen: imgCampeones
   },
-  { 
-    titulo: 'Show del Hincha', 
-    desc: 'Un espectáculo de tremenda dimensión que les mostró a los pibes otras posibilidades.', 
-    emoji: '⭐', 
-    tag: 'Cultura', 
+  {
+    titulo: 'Show del Hincha',
+    desc: 'Un espectáculo de tremenda dimensión que les mostró a los pibes otras posibilidades.',
+    icon: 'Star',
+    tag: 'Cultura',
     color: 'var(--color-ong-red)',
     imagen: imgHinchas
   },
-  { 
-    titulo: 'Circo Rodas', 
-    desc: 'Para muchos fue la primera vez en un circo. Quedaron enamorados del espectáculo.', 
-    emoji: '🎪', 
-    tag: 'Primera vez', 
+  {
+    titulo: 'Circo Rodas',
+    desc: 'Para muchos fue la primera vez en un circo. Quedaron enamorados del espectáculo.',
+    icon: 'Tent',
+    tag: 'Primera vez',
     color: 'var(--color-ong-green)',
     imagen: imgButacas
   },
-  { 
-    titulo: 'Partidos en la cancha', 
-    desc: 'Llevamos a los chicos a vivir la experiencia de una cancha profesional.', 
-    emoji: '⚽', 
-    tag: 'Deporte', 
-    color: 'var(--color-ong-blue, #3498db)',
+  {
+    titulo: 'Partidos en la cancha',
+    desc: 'Llevamos a los chicos a vivir la experiencia de una cancha profesional.',
+    icon: 'Goal',
+    tag: 'Deporte',
+    color: 'var(--color-ong-blue)',
     imagen: imgClub
   },
-  { 
-    titulo: 'Argentina vs Venezuela', 
-    desc: 'Boletos especiales para que los pibes vivieran un partido de la Selección.', 
-    emoji: '🏟️', 
-    tag: 'Selección', 
+  {
+    titulo: 'Salimos todos juntos',
+    desc: 'Cada salida arranca igual: chicos, chicas, familias y voluntarios, todos juntos y con la bandera de Pasión Sí, Violencia No bien en alto.',
+    icon: 'Flag',
+    tag: 'Salidas',
     color: 'var(--color-ong-green)',
     imagen: imgConBandera
   },
-  { 
-    titulo: 'Merendero & Contención', 
-    desc: 'Trabajamos junto al Merendero Jesús es Tu Amigo para acompañar a los chicos.', 
-    emoji: '🫶', 
-    tag: 'Comunidad', 
+  {
+    titulo: 'Merendero & Contención',
+    desc: 'Trabajamos junto al Merendero Jesús es Tu Amigo para acompañar a los chicos.',
+    icon: 'HandHeart',
+    tag: 'Comunidad',
     color: 'var(--color-ong-red)',
     imagen: imgChicos
   },

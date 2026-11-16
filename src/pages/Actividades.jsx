@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Trophy, Star, Tent, Goal, Flag, HandHeart } from 'lucide-react';
 import { actividades } from '../data/actividades';
+
+// string -> componente, así data/actividades.js queda libre de JSX
+const iconMap = { Trophy, Star, Tent, Goal, Flag, HandHeart };
 
 const COLORS = {
   green: 'var(--color-ong-green)',
@@ -9,13 +13,13 @@ const COLORS = {
 };
 
 const Actividades = () => (
-  <main style={{ background: COLORS.bg, padding: '140px 0', minHeight: '100vh', overflow: 'hidden' }}> 
+  <section style={{ background: COLORS.bg, padding: '140px 0', minHeight: '100vh', overflow: 'hidden' }}> 
     <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px' }}>
 
       {/* Encabezado Centrado */}
       <div style={{ textAlign: 'center', marginBottom: '100px' }}>
         <span style={{ color: COLORS.red, fontFamily: "'DM Sans', sans-serif", fontSize: 14, textTransform: 'uppercase', letterSpacing: 5, fontWeight: 700 }}>
-          Nuestro Impacto en Lugano
+          Nuestro Impacto
         </span>
         <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(3.5rem, 8vw, 6rem)', color: 'var(--text-primary)', margin: '16px 0 24px', lineHeight: 0.9 }}>
           NUESTRAS <span style={{ color: COLORS.green }}>ACTIVIDADES</span>
@@ -55,22 +59,28 @@ const Actividades = () => (
                 }}></div>
                 
                 {/* La Foto */}
-                <div style={{ width: '100%', aspectRatio: '4/3', borderRadius: '32px', overflow: 'hidden', position: 'relative', zIndex: 1, boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}>
+                {/* Sin aspectRatio fijo: cada foto se muestra entera, con su proporción original (antes se cortaban los costados) */}
+                <div style={{ width: '100%', borderRadius: '32px', overflow: 'hidden', position: 'relative', zIndex: 1, boxShadow: '0 20px 40px rgba(0,0,0,0.08)', background: 'var(--bg-secondary)' }}>
                   {a.imagen ? (
-                    <img src={a.imagen} alt={`Foto de ${a.titulo}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s ease' }} 
+                    <img src={a.imagen} alt={`Foto de ${a.titulo}`} loading="lazy" style={{ width: '100%', height: 'auto', display: 'block', transition: 'transform 0.7s ease' }} 
                          onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
                          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'} />
-                  ) : (
-                    <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 80, background: '#f0f0f0' }}>{a.emoji}</div>
-                  )}
+                  ) : null}
                 </div>
               </div>
 
               {/* Contenedor del Texto */}
               <div className="animate-fade-up animate-delay-2" style={{ flex: '1 1 400px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
-                  <span style={{ fontSize: 28 }}>{a.emoji}</span>
-                  <span style={{ color: a.color, fontSize: 13, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase', fontFamily: "'DM Sans', sans-serif" }}>
+                  {(() => {
+                    const Icon = iconMap[a.icon];
+                    return Icon ? (
+                      <span aria-hidden="true" style={{ width: 52, height: 52, borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: a.color, background: `color-mix(in srgb, ${a.color} 14%, transparent)` }}>
+                        <Icon size={26} strokeWidth={1.75} />
+                      </span>
+                    ) : null;
+                  })()}
+                  <span style={{ color: a.color, fontSize: 14, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', fontFamily: "'DM Sans', sans-serif" }}>
                     {a.tag}
                   </span>
                 </div>
@@ -105,13 +115,13 @@ const Actividades = () => (
         
         {/* Contenedor de los dos botones */}
         <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-          <Link to="/contacto" style={{ background: 'var(--color-ong-green)', color: '#fff', padding: '20px 40px', borderRadius: 16, fontWeight: 700, fontSize: 16, textDecoration: 'none', fontFamily: "'DM Sans', sans-serif", whiteSpace: 'nowrap', transition: 'transform 0.2s', boxShadow: '0 10px 20px rgba(46,204,113,0.3)' }}
+          <Link to="/contacto" style={{ background: 'var(--color-ong-green)', color: '#fff', padding: '20px 40px', borderRadius: 16, fontWeight: 700, fontSize: 16, textDecoration: 'none', fontFamily: "'DM Sans', sans-serif", whiteSpace: 'nowrap', transition: 'transform 0.2s', boxShadow: '0 10px 20px rgba(76,122,79,0.3)' }}
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05) translateY(-4px)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'scale(1) translateY(0)'}
           >
             CONTACTAR
           </Link>
-          <Link to="/contacto" style={{ background: 'var(--color-ong-red)', color: '#fff', padding: '20px 40px', borderRadius: 16, fontWeight: 700, fontSize: 16, textDecoration: 'none', fontFamily: "'DM Sans', sans-serif", whiteSpace: 'nowrap', transition: 'transform 0.2s', boxShadow: '0 10px 20px rgba(231,76,60,0.3)' }}
+          <Link to="/contacto#donar" style={{ background: 'var(--color-ong-red)', color: '#fff', padding: '20px 40px', borderRadius: 16, fontWeight: 700, fontSize: 16, textDecoration: 'none', fontFamily: "'DM Sans', sans-serif", whiteSpace: 'nowrap', transition: 'transform 0.2s', boxShadow: '0 10px 20px rgba(180,80,46,0.3)' }}
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05) translateY(-4px)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'scale(1) translateY(0)'}
           >
@@ -121,7 +131,7 @@ const Actividades = () => (
       </div>
 
     </div>
-  </main>
+  </section>
 );
 
 export default Actividades;
